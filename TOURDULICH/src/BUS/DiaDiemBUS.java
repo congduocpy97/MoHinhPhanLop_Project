@@ -21,22 +21,22 @@ public class DiaDiemBUS {
     }
 
     public static void init(JTable tbl) {
-        ArrayList<DiaDiemDTO> dssp = DiaDiemDAO.load();
-        uploadTable(tbl, dssp);
+        ArrayList<DiaDiemDTO> dsdd = DiaDiemDAO.load();
+        uploadTable(tbl, dsdd);
     }
 
     public ArrayList<DiaDiemDTO> find(String ten) {
-        DiaDiemDAO spDAO = new DiaDiemDAO();
-        return spDAO.find(ten);
+        DiaDiemDAO ddDAO = new DiaDiemDAO();
+        return ddDAO.find(ten);
     }
 
     public static void uploadTable(JTable tbl, ArrayList<DiaDiemDTO> list) {
         String[] columnNames = {"Mã địa điểm", "Tên địa điểm"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int i = 0;
-        for (DiaDiemDTO sp : list) {
-            data[i][0] = sp.getMadiadiem();
-            data[i][1] = sp.getTendiadiem();
+        for (DiaDiemDTO dd : list) {
+            data[i][0] = dd.getMadiadiem();
+            data[i][1] = dd.getTendiadiem();
 
             i++;
         }
@@ -45,16 +45,16 @@ public class DiaDiemBUS {
     }
 
     public void updateTable(JTable tbl) throws Exception {
-        DiaDiemDAO spDAO = new DiaDiemDAO();
-        ArrayList<DiaDiemDTO> dssp = spDAO.load();
-        uploadTable(tbl, dssp);
+        DiaDiemDAO ddDAO = new DiaDiemDAO();
+        ArrayList<DiaDiemDTO> dsdd = ddDAO.load();
+        uploadTable(tbl, dsdd);
     }
 
     public void add(String tendiadiem) {
-        DiaDiemDAO spDAO = new DiaDiemDAO();
-        DiaDiemDTO sp = new DiaDiemDTO(spDAO.getNewID());
-        sp.setTendiadiem(tendiadiem);
-        spDAO.add(sp);
+        DiaDiemDAO ddDAO = new DiaDiemDAO();
+        DiaDiemDTO dd = new DiaDiemDTO(ddDAO.getNewID());
+        dd.setTendiadiem(tendiadiem);
+        ddDAO.add(dd);
     }
 
     public static void delete(int madd) {
@@ -63,9 +63,9 @@ public class DiaDiemBUS {
     }
 
     public void edit(int madiadiem, String tendiadiem) {
-        DiaDiemDAO spDAO = new DiaDiemDAO();
-        DiaDiemDTO sp = new DiaDiemDTO(madiadiem);
-        sp.setTendiadiem(tendiadiem);
-        spDAO.edit(sp);
+        DiaDiemDAO ddDAO = new DiaDiemDAO();
+        DiaDiemDTO dd = new DiaDiemDTO(madiadiem);
+        dd.setTendiadiem(tendiadiem);
+        ddDAO.edit(dd);
     }
 }

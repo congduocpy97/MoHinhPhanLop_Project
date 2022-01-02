@@ -24,22 +24,22 @@ public class NhanVienBUS {
     }
 
     public static void init(JTable tbl) {
-        ArrayList<NhanVienDTO> dssp = NhanVienDAO.load();
-        uploadTable(tbl, dssp);
+        ArrayList<NhanVienDTO> dsnv = NhanVienDAO.load();
+        uploadTable(tbl, dsnv);
     }
 
     public ArrayList<NhanVienDTO> find(String ten) {
-        NhanVienDAO spDAO = new NhanVienDAO();
-        return spDAO.find(ten);
+        NhanVienDAO nvDAO = new NhanVienDAO();
+        return nvDAO.find(ten);
     }
 
     public static void uploadTable(JTable tbl, ArrayList<NhanVienDTO> list) {
         String[] columnNames = {"Mã nhân viên","Tên nhân viên"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int i = 0;
-        for (NhanVienDTO sp : list) {
-            data[i][0] = sp.getManhanvien();
-            data[i][1] = sp.getTennhanvien();
+        for (NhanVienDTO nv : list) {
+            data[i][0] = nv.getManhanvien();
+            data[i][1] = nv.getTennhanvien();
                         
             i++;
         }
@@ -48,27 +48,27 @@ public class NhanVienBUS {
     }
 
     public void updateTable(JTable tbl) throws Exception {
-        NhanVienDAO spDAO = new NhanVienDAO();
-        ArrayList<NhanVienDTO> dssp = spDAO.load();
-        uploadTable(tbl, dssp);
+        NhanVienDAO nvDAO = new NhanVienDAO();
+        ArrayList<NhanVienDTO> dsnv = nvDAO.load();
+        uploadTable(tbl, dsnv);
     }
 
     public void add(String tennhanvien) {
-        NhanVienDAO spDAO = new NhanVienDAO();
-        NhanVienDTO sp = new NhanVienDTO(spDAO.getNewID());
-        sp.setTennhanvien(tennhanvien);
-        spDAO.add(sp);
+        NhanVienDAO nvDAO = new NhanVienDAO();
+        NhanVienDTO nv = new NhanVienDTO(nvDAO.getNewID());
+        nv.setTennhanvien(tennhanvien);
+        nvDAO.add(nv);
     }
 
     public static void delete(int manv) {
-        NhanVienDAO spDAO = new NhanVienDAO();
-        spDAO.delete(manv);
+        NhanVienDAO nvDAO = new NhanVienDAO();
+        nvDAO.delete(manv);
     }
 
     public void edit(int manhanvien,String tennhanvien) {
-        NhanVienDAO spDAO = new NhanVienDAO();
-        NhanVienDTO sp = new NhanVienDTO(manhanvien);
-        sp.setTennhanvien(tennhanvien);
-        spDAO.edit(sp);
+        NhanVienDAO nvDAO = new NhanVienDAO();
+        NhanVienDTO nv = new NhanVienDTO(manhanvien);
+        nv.setTennhanvien(tennhanvien);
+        nvDAO.edit(nv);
     }
 }

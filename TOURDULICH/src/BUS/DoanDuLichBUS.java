@@ -29,26 +29,26 @@ public class DoanDuLichBUS {
     }
 
     public static void init(JTable tbl) {
-        ArrayList<DoanDuLichDTO> dssp = DoanDuLichDAO.load();
-        uploadTable(tbl, dssp);
+        ArrayList<DoanDuLichDTO> dsdoan = DoanDuLichDAO.load();
+        uploadTable(tbl, dsdoan);
     }
 
     public ArrayList<DoanDuLichDTO> find(String ten) {
-        DoanDuLichDAO spDAO = new DoanDuLichDAO();
-        return spDAO.find(ten);
+        DoanDuLichDAO doanDAO = new DoanDuLichDAO();
+        return doanDAO.find(ten);
     }
 
     public static void uploadTable(JTable tbl, ArrayList<DoanDuLichDTO> list) {
         String[] columnNames = {"Mã đoàn", "Tên tour", "Ngày khởi hành", "Ngày kết thúc", "Tên Chi phí", "Doanh Thu"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int i = 0;
-        for (DoanDuLichDTO sp : list) {
-            data[i][0] = sp.getMadoan();
-            data[i][1] = Convert.getTentour(sp.getMatour());
-            data[i][2] = sp.getNgaykhoihanh();
-            data[i][3] = sp.getNgayketthuc();
-            data[i][4] = Convert.getTencp(sp.getMaloaichiphi());
-            data[i][5] = sp.getDoanhthu();
+        for (DoanDuLichDTO doan : list) {
+            data[i][0] = doan.getMadoan();
+            data[i][1] = Convert.getTentour(doan.getMatour());
+            data[i][2] = doan.getNgaykhoihanh();
+            data[i][3] = doan.getNgayketthuc();
+            data[i][4] = Convert.getTencp(doan.getMaloaichiphi());
+            data[i][5] = doan.getDoanhthu();
             i++;
         }
         TableModel tableModel = new DefaultTableModel(data, columnNames);
@@ -56,24 +56,24 @@ public class DoanDuLichBUS {
     }
 
     public void updateTable(JTable tbl) throws Exception {
-        DoanDuLichDAO spDAO = new DoanDuLichDAO();
-        ArrayList<DoanDuLichDTO> dssp = spDAO.load();
-        for(DoanDuLichDTO d :dssp){
+        DoanDuLichDAO doanDAO = new DoanDuLichDAO();
+        ArrayList<DoanDuLichDTO> dsdoan = doanDAO.load();
+        for(DoanDuLichDTO d :dsdoan){
             d.setDoanhthu(updateDoanhthu(d.getMadoan()));
             
         }
-        uploadTable(tbl, dssp);
+        uploadTable(tbl, dsdoan);
     }
 
     public void add(int matour, String ngaykhoihanh, String ngayketthuc, int maloaichiphi, int doanhthu) {
-        DoanDuLichDAO spDAO = new DoanDuLichDAO();
-        DoanDuLichDTO sp = new DoanDuLichDTO(spDAO.getNewID());
-        sp.setMatour(matour);
-        sp.setNgaykhoihanh(ngaykhoihanh);
-        sp.setNgayketthuc(ngayketthuc);
-        sp.setMaloaichiphi(maloaichiphi);
-        sp.setDoanhthu(doanhthu);
-        spDAO.add(sp);
+        DoanDuLichDAO doanDAO = new DoanDuLichDAO();
+        DoanDuLichDTO doan = new DoanDuLichDTO(doanDAO.getNewID());
+        doan.setMatour(matour);
+        doan.setNgaykhoihanh(ngaykhoihanh);
+        doan.setNgayketthuc(ngayketthuc);
+        doan.setMaloaichiphi(maloaichiphi);
+        doan.setDoanhthu(doanhthu);
+        doanDAO.add(doan);
     }
 
     public static void delete(int madoan) {
@@ -82,21 +82,21 @@ public class DoanDuLichBUS {
     }
 
     public void edit(int madoan, int matour, String ngaykhoihanh, String ngayketthuc, int maloaichiphi, int doanhthu) {
-        DoanDuLichDAO spDAO = new DoanDuLichDAO();
-        DoanDuLichDTO sp = new DoanDuLichDTO(madoan);
-        sp.setMatour(matour);
-        sp.setNgaykhoihanh(ngaykhoihanh);
-        sp.setNgayketthuc(ngayketthuc);
-        sp.setMaloaichiphi(maloaichiphi);
-        sp.setDoanhthu(doanhthu);
-        spDAO.edit(sp);
+        DoanDuLichDAO doanDAO = new DoanDuLichDAO();
+        DoanDuLichDTO doan = new DoanDuLichDTO(madoan);
+        doan.setMatour(matour);
+        doan.setNgaykhoihanh(ngaykhoihanh);
+        doan.setNgayketthuc(ngayketthuc);
+        doan.setMaloaichiphi(maloaichiphi);
+        doan.setDoanhthu(doanhthu);
+        doanDAO.edit(doan);
     }
 
     public void editDoanhthu(int madoan, int doanhthu) {
-        DoanDuLichDAO spDAO = new DoanDuLichDAO();
-        DoanDuLichDTO sp = new DoanDuLichDTO(madoan);
-        sp.setDoanhthu(doanhthu);
-        spDAO.edit(sp);
+        DoanDuLichDAO doanDAO = new DoanDuLichDAO();
+        DoanDuLichDTO doan = new DoanDuLichDTO(madoan);
+        doan.setDoanhthu(doanhthu);
+        doanDAO.edit(doan);
     }
 
     public int updateDoanhthu(int madoan) {

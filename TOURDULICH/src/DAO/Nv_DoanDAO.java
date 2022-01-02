@@ -45,7 +45,7 @@ public class Nv_DoanDAO {
         return list;
     }
 
-    public static Nv_DoanDTO getKhach_Doan(int oj) {
+    public static Nv_DoanDTO getNv_Doan(int oj) {
         Database DB = new Database();
         DB.connect();
 

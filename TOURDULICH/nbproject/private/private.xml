@@ -3,20 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/DAO/TourDuLichDAO.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/DTO/Khach_DoanDTO.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/GUI/CHITIETDOAN.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/GUI/MAIN.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/Tools/Rename.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/Tools/Convert.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/BUS/Khach_DoanBUS.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/DAO/KhachDAO.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/DAO/Nv_DoanDAO.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/BUS/NhanVienBUS.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/DAO/Khach_DoanDAO.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/DTO/Nv_DoanDTO.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/DAO/NhanVienDAO.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/TOURDULICH/src/BUS/Nv_DoanBUS.java</file>
+            <file>file:/D:/Netbeans/TOURDULICH/src/DAO/DiaDiemDAO.java</file>
         </group>
     </open-files>
 </project-private>

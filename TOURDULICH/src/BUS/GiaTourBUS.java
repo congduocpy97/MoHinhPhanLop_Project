@@ -23,24 +23,24 @@ public class GiaTourBUS {
     }
 
     public static void init(JTable tbl) {
-        ArrayList<GiaTourDTO> dssp = GiaTourDAO.load();
-        uploadTable(tbl, dssp);
+        ArrayList<GiaTourDTO> dsgia = GiaTourDAO.load();
+        uploadTable(tbl, dsgia);
     }
 
 //    public ArrayList<GiaTourDTO> find(String ten) {
-//        GiaTourDAO spDAO = new GiaTourDAO();
-//        return spDAO.find(ten);
+//        GiaTourDAO giaDAO = new GiaTourDAO();
+//        return giaDAO.find(ten);
 //    }
     public static void uploadTable(JTable tbl, ArrayList<GiaTourDTO> list) {
         String[] columnNames = {"Mã giá", "Tên Tour", "Ngày bắt đầu", "Ngày kết thúc", "Thành tiền"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int i = 0;
-        for (GiaTourDTO sp : list) {
-            data[i][0] = sp.getMagia();
-            data[i][1] = Convert.getTentour(sp.getMatour());
-            data[i][2] = sp.getThoiGianbatdau();
-            data[i][3] = sp.getThoiGianketthuc();
-            data[i][4] = sp.getThanhtien();
+        for (GiaTourDTO gia : list) {
+            data[i][0] = gia.getMagia();
+            data[i][1] = Convert.getTentour(gia.getMatour());
+            data[i][2] = gia.getThoiGianbatdau();
+            data[i][3] = gia.getThoiGianketthuc();
+            data[i][4] = gia.getThanhtien();
 
             i++;
         }
@@ -49,20 +49,20 @@ public class GiaTourBUS {
     }
 
     public void updateTable(JTable tbl) throws Exception {
-        GiaTourDAO spDAO = new GiaTourDAO();
-        ArrayList<GiaTourDTO> dssp = spDAO.load();
-        uploadTable(tbl, dssp);
+        GiaTourDAO giaDAO = new GiaTourDAO();
+        ArrayList<GiaTourDTO> dsgia = giaDAO.load();
+        uploadTable(tbl, dsgia);
     }
 
     public void add(int matour, String ngaybd, String ngaykt, int thanhtien) {
-        GiaTourDAO spDAO = new GiaTourDAO();
+        GiaTourDAO giaDAO = new GiaTourDAO();
 
-        GiaTourDTO sp = new GiaTourDTO(spDAO.getNewID());
-        sp.setMatour(matour);
-        sp.setThoiGianbatdau(ngaybd);
-        sp.setThoiGianketthuc(ngaykt);
-        sp.setThanhtien(thanhtien);
-        spDAO.add(sp);
+        GiaTourDTO gia = new GiaTourDTO(giaDAO.getNewID());
+        gia.setMatour(matour);
+        gia.setThoiGianbatdau(ngaybd);
+        gia.setThoiGianketthuc(ngaykt);
+        gia.setThanhtien(thanhtien);
+        giaDAO.add(gia);
     }
 
     public static void delete(int matl) {
@@ -71,13 +71,13 @@ public class GiaTourBUS {
     }
 
     public void edit(int magia, int matour, String ngaybd, String ngaykt, int thanhtien) {
-        GiaTourDTO sp = new GiaTourDTO(magia);
-        sp.setMatour(matour);
-        sp.setThoiGianbatdau(ngaybd);
-        sp.setThoiGianketthuc(ngaykt);
-        sp.setThanhtien(thanhtien);
-        GiaTourDAO spDAO = new GiaTourDAO();
-        spDAO.edit(sp);
+        GiaTourDTO gia = new GiaTourDTO(magia);
+        gia.setMatour(matour);
+        gia.setThoiGianbatdau(ngaybd);
+        gia.setThoiGianketthuc(ngaykt);
+        gia.setThanhtien(thanhtien);
+        GiaTourDAO giaDAO = new GiaTourDAO();
+        giaDAO.edit(gia);
     }
     
    

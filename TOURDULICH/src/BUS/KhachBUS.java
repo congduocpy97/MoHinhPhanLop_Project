@@ -24,26 +24,26 @@ public class KhachBUS {
     }
 
     public static void init(JTable tbl) {
-        ArrayList<KhachDTO> dssp = KhachDAO.load();
-        uploadTable(tbl, dssp);
+        ArrayList<KhachDTO> dskhach = KhachDAO.load();
+        uploadTable(tbl, dskhach);
     }
 
     public ArrayList<KhachDTO> find(String ten) {
-        KhachDAO spDAO = new KhachDAO();
-        return spDAO.find(ten);
+        KhachDAO khachDAO = new KhachDAO();
+        return khachDAO.find(ten);
     }
 
     public static void uploadTable(JTable tbl, ArrayList<KhachDTO> list) {
         String[] columnNames = {"Mã kháhc hàng","Họ tên","CMND/CCCD","Địa chỉ","Giới tính","SDT"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int i = 0;
-        for (KhachDTO sp : list) {
-            data[i][0] = sp.getMakhachhang();
-            data[i][1] = sp.getHoten();
-            data[i][2] = sp.getSocmnd();
-            data[i][3] = sp.getDiachi();
-            data[i][4] = sp.getGioitinh();
-            data[i][5] = sp.getSdt();
+        for (KhachDTO khach : list) {
+            data[i][0] = khach.getMakhachhang();
+            data[i][1] = khach.getHoten();
+            data[i][2] = khach.getSocmnd();
+            data[i][3] = khach.getDiachi();
+            data[i][4] = khach.getGioitinh();
+            data[i][5] = khach.getSdt();
             i++;
         }
         TableModel tableModel = new DefaultTableModel(data, columnNames);
@@ -51,45 +51,45 @@ public class KhachBUS {
     }
 
     public void updateTable(JTable tbl) throws Exception {
-        KhachDAO spDAO = new KhachDAO();
-        ArrayList<KhachDTO> dssp = spDAO.load();
-        uploadTable(tbl, dssp);
+        KhachDAO khachDAO = new KhachDAO();
+        ArrayList<KhachDTO> dskhach = khachDAO.load();
+        uploadTable(tbl, dskhach);
     }
 
     public void add(String hoten,String socmnd,String diachi,String gioitinh,String sdt) {
-        KhachDAO spDAO = new KhachDAO();
-        KhachDTO sp = new KhachDTO(spDAO.getNewID());
-        sp.setHoten(hoten);
-        sp.setSocmnd(socmnd);
-        sp.setDiachi(diachi);
-        sp.setGioitinh(gioitinh);
-        sp.setSdt(sdt);
-        spDAO.add(sp);
+        KhachDAO khachDAO = new KhachDAO();
+        KhachDTO khach = new KhachDTO(khachDAO.getNewID());
+        khach.setHoten(hoten);
+        khach.setSocmnd(socmnd);
+        khach.setDiachi(diachi);
+        khach.setGioitinh(gioitinh);
+        khach.setSdt(sdt);
+        khachDAO.add(khach);
     }
 
     public static void delete(int makh) {
-        KhachDAO spDAO = new KhachDAO();
-        spDAO.delete(makh);
+        KhachDAO khachDAO = new KhachDAO();
+        khachDAO.delete(makh);
     }
 
     public void edit(int makhachhang,String hoten,String socmnd,String diachi,String gioitinh,String sdt) {
-        KhachDAO spDAO = new KhachDAO();
-        KhachDTO sp = new KhachDTO(makhachhang);
-        sp.setHoten(hoten);
-        sp.setSocmnd(socmnd);
-        sp.setDiachi(diachi);
-        sp.setGioitinh(gioitinh);
-        sp.setSdt(sdt);
-        spDAO.edit(sp);
+        KhachDAO khachDAO = new KhachDAO();
+        KhachDTO khach = new KhachDTO(makhachhang);
+        khach.setHoten(hoten);
+        khach.setSocmnd(socmnd);
+        khach.setDiachi(diachi);
+        khach.setGioitinh(gioitinh);
+        khach.setSdt(sdt);
+        khachDAO.edit(khach);
     }
 
     public static void loadInfo(JTable tbl, JTextField formHoten,JTextField formCMND,JTextField formDiachi,JTextField formGioitinh,JTextField formSdt) {
-        KhachDTO sp = KhachDAO.getKhach(TableUtil.getMaFromTable(tbl));
-        formHoten.setText(sp.getHoten());
-        formCMND.setText(sp.getSocmnd());
-        formDiachi.setText(sp.getDiachi());
-        formGioitinh.setText(sp.getGioitinh());
-        formSdt.setText(String.valueOf(sp.getSdt()));
+        KhachDTO khach = KhachDAO.getKhach(TableUtil.getMaFromTable(tbl));
+        formHoten.setText(khach.getHoten());
+        formCMND.setText(khach.getSocmnd());
+        formDiachi.setText(khach.getDiachi());
+        formGioitinh.setText(khach.getGioitinh());
+        formSdt.setText(String.valueOf(khach.getSdt()));
        
     }
 }

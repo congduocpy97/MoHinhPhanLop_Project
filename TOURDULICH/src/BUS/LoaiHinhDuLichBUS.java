@@ -26,17 +26,17 @@ public class LoaiHinhDuLichBUS {
     }
 
     public static void init(JTable tbl) {
-        ArrayList<LoaiHinhDuLichDTO> dssp = LoaiHinhDuLichDAO.load();
-        uploadTable(tbl, dssp);
+        ArrayList<LoaiHinhDuLichDTO> dslh = LoaiHinhDuLichDAO.load();
+        uploadTable(tbl, dslh);
     }
 
     public static void uploadTable(JTable tbl, ArrayList<LoaiHinhDuLichDTO> list) {
         String[] columnNames = {"Mã loại hình", "Tên loại hình"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int i = 0;
-        for (LoaiHinhDuLichDTO sp : list) {
-            data[i][0] = sp.getMaloaihinh();
-            data[i][1] = sp.getTenloaihinh();
+        for (LoaiHinhDuLichDTO lh : list) {
+            data[i][0] = lh.getMaloaihinh();
+            data[i][1] = lh.getTenloaihinh();
 
             i++;
         }
@@ -45,16 +45,16 @@ public class LoaiHinhDuLichBUS {
     }
 
     public void updateTable(JTable tbl) throws Exception {
-        LoaiHinhDuLichDAO spDAO = new LoaiHinhDuLichDAO();
-        ArrayList<LoaiHinhDuLichDTO> dssp = spDAO.load();
-        uploadTable(tbl, dssp);
+        LoaiHinhDuLichDAO lhDAO = new LoaiHinhDuLichDAO();
+        ArrayList<LoaiHinhDuLichDTO> dslh = lhDAO.load();
+        uploadTable(tbl, dslh);
     }
 
     public void add(String tenloaihinh) {
-        LoaiHinhDuLichDAO spDAO = new LoaiHinhDuLichDAO();
-        LoaiHinhDuLichDTO sp = new LoaiHinhDuLichDTO(spDAO.getNewID());
-        sp.setTenloaihinh(tenloaihinh);
-        spDAO.add(sp);
+        LoaiHinhDuLichDAO lhDAO = new LoaiHinhDuLichDAO();
+        LoaiHinhDuLichDTO lh = new LoaiHinhDuLichDTO(lhDAO.getNewID());
+        lh.setTenloaihinh(tenloaihinh);
+        lhDAO.add(lh);
     }
 
     public static void delete(int malh) {
@@ -63,9 +63,9 @@ public class LoaiHinhDuLichBUS {
     }
 
     public void edit(int maloaihinh, String tenloaihinh) {
-        LoaiHinhDuLichDAO spDAO = new LoaiHinhDuLichDAO();
-        LoaiHinhDuLichDTO sp = new LoaiHinhDuLichDTO(maloaihinh);
-        sp.setTenloaihinh(tenloaihinh);
-        spDAO.edit(sp);
+        LoaiHinhDuLichDAO lhDAO = new LoaiHinhDuLichDAO();
+        LoaiHinhDuLichDTO lh = new LoaiHinhDuLichDTO(maloaihinh);
+        lh.setTenloaihinh(tenloaihinh);
+        lhDAO.edit(lh);
     }
 }
