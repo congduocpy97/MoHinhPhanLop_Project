@@ -56,7 +56,7 @@ export const GridStyle = {
 export const InputStyle = {
    width: '100%',
 }
-export const APIServer = "http://localhost:8083/"
+export const APIServer = "http://localhost:8080/"
 // export const APIServer = "http://14.176.204.153:8083/"
 export const dateTimeReviver = function (key, value) {
     var a;
